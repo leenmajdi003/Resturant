@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "736837659437",
+    "project_id": "resturant-ebff0",
+    "storage_bucket": "resturant-ebff0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:736837659437:android:a23e6b16b49b76eacb01a4",
+        "android_client_info": {
+          "package_name": "com.example.resturant"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgDzQt4ni_NHedfF--2V29uGzr9qCSEEs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
