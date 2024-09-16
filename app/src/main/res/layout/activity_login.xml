@@ -9,8 +9,13 @@
     tools:context=".Activity.LoginActivity">
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,7 +26,8 @@
                 android:id="@+id/imageView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:srcCompat="@drawable/logo" />
+                android:layout_marginTop="48dp"
+                android:src="@drawable/logo" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -103,8 +109,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginEnd="32dp"
                 android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
                 android:orientation="horizontal">
 
                 <View
@@ -127,10 +133,10 @@
                     android:textSize="18sp" />
 
                 <View
-                    android:layout_gravity="center"
                     android:id="@+id/view3"
                     android:layout_width="wrap_content"
                     android:layout_height="1dp"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
                     android:background="#B2B5B9" />
 
@@ -139,7 +145,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-             android:layout_margin="32dp"
+                android:layout_margin="32dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -147,21 +153,22 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    tools:srcCompat="@drawable/facebook" />
+                    android:src="@drawable/facebook" />
 
                 <ImageView
                     android:id="@+id/google"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    tools:srcCompat="@drawable/google" />
+                    android:src="@drawable/google" />
 
                 <ImageView
                     android:id="@+id/twitter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    tools:srcCompat="@drawable/twitter" />
+                    android:src="@drawable/twitter" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -172,19 +179,19 @@
 
                 <TextView
                     android:id="@+id/textView3"
-                    android:textSize="16sp"
-                    android:textColor="@color/blue_grey"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="You arent a user? " />
+                    android:text="You arent a user? "
+                    android:textColor="@color/blue_grey"
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/textView8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="Sign Up"
                     android:textColor="@color/red"
-                    android:textSize="16sp"
-                    android:text="Sign Up" />
+                    android:textSize="16sp" />
             </LinearLayout>
 
         </LinearLayout>
