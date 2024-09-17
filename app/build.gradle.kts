@@ -43,6 +43,7 @@ dependencies {
     implementation(libs.gson)
     implementation(libs.firebase.auth)
     implementation(libs.firebase.database)
+    implementation(libs.glide)
 
 
     // When using the BoM, you don't specify versions in Firebase library dependencies
