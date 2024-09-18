@@ -19,7 +19,9 @@ public class Location {
         return Loc;
     }
 
-    public void setLoc(String loc) {
-        Loc = loc;
+    @Override
+    public String toString() {
+        return this.getLoc(); // يعرض اسم الموقع بدلاً من اسم الكلاس
     }
+
 }

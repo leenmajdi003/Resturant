@@ -73,6 +73,7 @@
                     android:layout_marginEnd="6dp"
                     android:background="@drawable/grey_bacground"
                     android:padding="12dp"
+                    app:srcCompat="@drawable/settings"
                     tools:src="@drawable/settings" />
 
                 <LinearLayout
@@ -83,29 +84,30 @@
                     android:orientation="horizontal">
 
                     <EditText
-                        android:layout_margin="4dp"
                         android:id="@+id/editTextText4"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:layout_margin="4dp"
                         android:layout_weight="1"
                         android:background="@color/gray"
                         android:ems="10"
                         android:hint="Search Food ..."
-                        android:textColorHint="@color/blue_grey"
-                        android:textColor="@color/blue_grey"
-                        android:textSize="16sp"
-                        android:textAlignment="center"
-
                         android:inputType="text"
-                        android:padding="8dp" />
+                        android:padding="8dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/blue_grey"
+
+                        android:textColorHint="@color/blue_grey"
+                        android:textSize="16sp" />
 
                     <ImageView
                         android:id="@+id/searchBtn"
                         android:layout_width="wrap_content"
-                        android:layout_gravity="center"
-                        android:padding="4dp"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:layout_weight="1"
+                        android:padding="4dp"
+                        app:srcCompat="@drawable/search_icon"
                         tools:srcCompat="@drawable/search_icon" />
                 </LinearLayout>
 
@@ -116,6 +118,7 @@
                     android:layout_marginStart="6dp"
                     android:background="@drawable/grey_bacground"
                     android:padding="12dp"
+                    app:srcCompat="@drawable/basket"
                     tools:src="@drawable/basket" />
             </LinearLayout>
 
@@ -134,11 +137,13 @@
                     android:layout_marginEnd="8dp"
                     android:background="@drawable/grey_bacground"
                     android:orientation="horizontal">
-                <ImageView
+
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="8dp"
+                        app:srcCompat="@drawable/location"
                         tools:srcCompat="@drawable/location" />
 
                     <Spinner
@@ -165,6 +170,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="8dp"
+                        app:srcCompat="@drawable/time"
                         tools:srcCompat="@drawable/time" />
 
                     <Spinner
@@ -190,6 +196,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="8dp"
+                        app:srcCompat="@drawable/dollar"
                         tools:srcCompat="@drawable/dollar" />
 
                     <Spinner
