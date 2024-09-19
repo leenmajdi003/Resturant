@@ -1,7 +1,6 @@
 package com.example.resturant.Activity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ArrayAdapter;
 
 import androidx.activity.EdgeToEdge;
@@ -12,6 +11,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.resturant.Activity.Domain.Location;
+import com.example.resturant.Activity.Domain.Price;
+import com.example.resturant.Activity.Domain.Time;
 import com.example.resturant.R;
 import com.example.resturant.databinding.ActivityLoginBinding;
 import com.example.resturant.databinding.ActivityMainBinding;
@@ -24,7 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class MainActivity extends BaseActivity {
-private ActivityMainBinding binding;
+    private ActivityMainBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,32 +38,91 @@ private ActivityMainBinding binding;
             return insets;
         });
         initialLocation();
+        initialTime();
+        initialPrice();
     }
 
     private void initialLocation() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Location");
 
-        ArrayList<Location> list = new ArrayList<>();
+        ArrayList<Location> list=new ArrayList<>();
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    list.clear(); // للتأكد من عدم تكرار البيانات
-                    for (DataSnapshot issue : snapshot.getChildren()) {
+                if(snapshot.exists()){
+                    for(DataSnapshot issue:snapshot.getChildren())
+                    {
                         Location location = issue.getValue(Location.class);
                         if (location != null) {
                             list.add(location);
                         }
+
                     }
-                    ArrayAdapter<Location> adapter = new ArrayAdapter<>(MainActivity.this, R.layout.sp_item, list);
-                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                    binding.locationSp.setAdapter(adapter);
-                    adapter.notifyDataSetChanged();
-                } else {
-                    Log.d("MainActivity", "No data available.");
                 }
+                ArrayAdapter<Location> adapter=new ArrayAdapter<>(MainActivity.this,R.layout.sp_item,list);
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                binding.locationSp.setAdapter(adapter);
             }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+    private void initialTime() {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("Time");
+
+        ArrayList<Time> list=new ArrayList<>();
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    for(DataSnapshot issue:snapshot.getChildren())
+                    {
+                        Time time = issue.getValue(Time.class);
+                        if (time != null) {
+                            list.add(time);
+                        }
+
+                    }
+                }
+                ArrayAdapter<Time> adapterTime=new ArrayAdapter<>(MainActivity.this,R.layout.sp_item,list);
+                adapterTime.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                binding.timeSp.setAdapter(adapterTime);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+    private void initialPrice() {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("Price");
+
+        ArrayList<Price> list=new ArrayList<>();
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    for(DataSnapshot issue:snapshot.getChildren())
+                    {
+                        Price price = issue.getValue(Price.class);
+                        if (price != null) {
+                            list.add(price);
+                        }
+
+                    }
+                }
+                ArrayAdapter<Price> adapterPrice=new ArrayAdapter<>(MainActivity.this,R.layout.sp_item,list);
+                adapterPrice.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                binding.pricesp.setAdapter(adapterPrice);
+            }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 

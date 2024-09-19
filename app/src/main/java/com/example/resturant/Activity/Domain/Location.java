@@ -4,6 +4,11 @@ public class Location {
     private int Id;
     private String Loc;
 
+    @Override
+    public String toString() {
+        return  Loc;
+    }
+
     public Location() {
     }
 
@@ -19,9 +24,7 @@ public class Location {
         return Loc;
     }
 
-    @Override
-    public String toString() {
-        return this.getLoc(); // يعرض اسم الموقع بدلاً من اسم الكلاس
+    public void setLoc(String loc) {
+        Loc = loc;
     }
-
 }
