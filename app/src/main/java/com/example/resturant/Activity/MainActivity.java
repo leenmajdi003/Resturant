@@ -10,10 +10,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.resturant.Activity.Adapter.BestFoodsAdapter;
+import com.example.resturant.Activity.Adapter.CategoryAdapter;
+import com.example.resturant.Activity.Domain.Category;
 import com.example.resturant.Activity.Domain.Foods;
 import com.example.resturant.Activity.Domain.Location;
 import com.example.resturant.Activity.Domain.Price;
@@ -47,6 +50,7 @@ public class MainActivity extends BaseActivity {
         initialTime();
         initialPrice();
         initBestFood();
+        initCategory();
     }
 
     private void initialLocation() {
@@ -162,5 +166,30 @@ public class MainActivity extends BaseActivity {
             }
         });
     }
+    private void initCategory() {
+        DatabaseReference myRef = database.getReference("Category");
+        binding.progressBarBestFood.setVisibility(View.VISIBLE);
+        ArrayList<Category> list = new ArrayList<>();
+       // Query query = myRef.orderByChild("BestFood").equalTo(true);
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    for (DataSnapshot issue : snapshot.getChildren()) {
+                        list.add(issue.getValue(Category.class));
+                    }
+                }
+                if (list.size() > 0) {
+                    binding.CategoryView.setLayoutManager(new GridLayoutManager(MainActivity.this,4));
+                    RecyclerView.Adapter adapter = new CategoryAdapter(list);
+                    binding.CategoryView.setAdapter(adapter);
+                }
+                binding.progressBarCategory.setVisibility(View.GONE);
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+    }
 }

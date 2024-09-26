@@ -15,13 +15,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/imgCart"
             android:layout_width="72dp"
             android:layout_height="72dp"
             android:layout_gravity="center"
             android:layout_marginTop="8dp"
+            android:background="@drawable/cart_0_background"
             android:padding="12dp"
-            android:src="@tools:sample/avatars"
+
             app:srcCompat="@drawable/btn_1" />
 
         <TextView
