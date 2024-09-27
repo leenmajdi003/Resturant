@@ -4,40 +4,68 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.example.resturant.Activity.Domain.Foods;
 import com.example.resturant.R;
 
 import java.util.ArrayList;
 
-public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.viewholder> {
+public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.ViewHolder> {
 
-    ArrayList<Foods> items = new ArrayList<>();
-    Context context;
+    private final ArrayList<Foods> items;
+    private final Context context;
+
+    public FoodListAdapter(Context context, ArrayList<Foods> items) {
+        this.context = context;
+        this.items = items;
+    }
 
     @NonNull
     @Override
-    public FoodListAdapter.viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        context=parent.getContext();
-        View inflate=LayoutInflater.from(context).inflate(R.layout.activity_list_food,parent,false);
-        return null;
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        // Inflate the correct layout for each food item
+        View inflate = LayoutInflater.from(context).inflate(R.layout.viewholder_listfood, parent, false);
+        return new ViewHolder(inflate);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull FoodListAdapter.viewholder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        Foods foodItem = items.get(position);
+        holder.titleText.setText(foodItem.getTitle());
+        holder.timeText.setText(foodItem.getTimeValue() + " min");
+        holder.priceText.setText(" $" + foodItem.getPrice());
+        holder.rateTxt.setText(String.valueOf(foodItem.getStar()));
 
+        Glide.with(context)
+                .load(foodItem.getImagePath())
+                .transform(new CenterCrop(), new RoundedCorners(30))
+                .into(holder.pic);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return items.size();
     }
 
-    public class viewholder extends RecyclerView.ViewHolder{
-        public viewholder(@NonNull View itemView) {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        TextView titleText, priceText, rateTxt, timeText;
+        ImageView pic;
+
+        public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            titleText = itemView.findViewById(R.id.titleText1);
+            priceText = itemView.findViewById(R.id.priceText1);
+            rateTxt = itemView.findViewById(R.id.rateTxt1);
+            timeText = itemView.findViewById(R.id.timeText1);
+            pic = itemView.findViewById(R.id.img);
         }
     }
 }

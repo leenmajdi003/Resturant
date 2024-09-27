@@ -1,6 +1,7 @@
 package com.example.resturant.Activity.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.example.resturant.Activity.Domain.Category;
 import com.example.resturant.Activity.Domain.Foods;
+import com.example.resturant.Activity.ListFoodActivity;
 import com.example.resturant.R;
 
 import java.util.ArrayList;
@@ -91,7 +93,12 @@ switch (position) {
         Glide.with(context)
                 .load(drawableResourceId)
                 .into(holder.pic);
-
+holder.itemView.setOnClickListener(v -> {
+    Intent intent=new Intent(context, ListFoodActivity.class);
+    intent.putExtra("CategoryId",items.get(position).getId());
+    intent.putExtra("CategoryName",items.get(position).getName());
+    context.startActivity(intent);
+});
     }
 
     @Override
