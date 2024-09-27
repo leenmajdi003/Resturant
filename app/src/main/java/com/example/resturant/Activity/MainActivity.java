@@ -65,7 +65,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 String text=binding.editTextsearch.getText().toString();
-                if(text.isEmpty())
+                if(!text.isEmpty())
                 {
                     Intent intent=new Intent(MainActivity.this, ListFoodActivity.class);
                     intent.putExtra("text",text);

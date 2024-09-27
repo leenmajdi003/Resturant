@@ -35,7 +35,19 @@ public class ListFoodActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        binding = ActivityListFoodBinding.inflate(getLayoutInflater());
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(binding.getRoot());
 
+        ViewCompat.setOnApplyWindowInsetsListener(binding.getRoot(), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
+        getIntentExtra();
+        initList();
     }
 
     private void setVariable() {

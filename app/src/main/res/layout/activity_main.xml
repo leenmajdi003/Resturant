@@ -10,13 +10,18 @@
 
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:id="@+id/scrollView3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -58,12 +63,12 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginTop="16dp"
-
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -102,14 +107,13 @@
 
                     <ImageView
                         android:id="@+id/searchBtn"
-                        android:layout_marginEnd="4dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:layout_marginEnd="4dp"
                         android:layout_weight="1"
                         android:padding="4dp"
-                        app:srcCompat="@drawable/search_icon"
-                        tools:srcCompat="@drawable/search_icon" />
+                     android:src="@drawable/search_icon" />
                 </LinearLayout>
 
                 <ImageView
@@ -127,15 +131,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.3333"
                     android:layout_marginEnd="8dp"
+                    android:layout_weight="0.3333"
                     android:background="@drawable/grey_bacground"
                     android:orientation="horizontal">
 
@@ -186,8 +190,8 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="40dp"
-                    android:layout_weight="0.3333"
                     android:layout_marginStart="8dp"
+                    android:layout_weight="0.3333"
                     android:background="@drawable/grey_bacground"
                     android:orientation="horizontal">
 
@@ -213,8 +217,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="24dp"
                 android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
                 android:layout_marginEnd="16dp"
                 android:orientation="horizontal">
 
@@ -233,10 +237,10 @@
                 <TextView
                     android:id="@+id/textView9"
                     android:layout_width="wrap_content"
-                    android:textColor="@color/red"
-
                     android:layout_height="wrap_content"
-                    android:text="VIEW ALL" />
+
+                    android:text="VIEW ALL"
+                    android:textColor="@color/red" />
             </LinearLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -269,11 +273,11 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
-                android:layout_marginStart="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
+                android:layout_weight="1"
                 android:text="Choose Category"
                 android:textColor="@color/blue_grey"
                 android:textSize="22dp"
