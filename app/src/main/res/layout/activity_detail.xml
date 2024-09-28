@@ -25,13 +25,13 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:id="@+id/imageView5"
+                    android:id="@+id/pic2"
                     android:layout_width="match_parent"
                     android:layout_height="400dp"
                     android:scaleType="centerCrop"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:srcCompat="@tools:sample/avatars" />
+                    />
 
                 <ImageView
                     android:id="@+id/favBtn"
@@ -39,12 +39,13 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
                     android:src="@drawable/favorite_white"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+                    app:layout_constraintBottom_toBottomOf="@+id/pic2"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+                    app:layout_constraintTop_toBottomOf="@+id/pic2" />
 
                 <ImageView
                     android:id="@+id/backBtn"
+                    app:tint="@color/white"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"

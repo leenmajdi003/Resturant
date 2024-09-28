@@ -1,6 +1,7 @@
 package com.example.resturant.Activity.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.RoundedCorner;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.example.resturant.Activity.DetailActivity;
 import com.example.resturant.Activity.Domain.Foods;
 import com.example.resturant.R;
 
@@ -47,6 +49,14 @@ public class BestFoodsAdapter extends RecyclerView.Adapter<BestFoodsAdapter.view
                 .load(items.get(position).getImagePath())
                 .transform(new CenterCrop(),new RoundedCorners(30))
                 .into(holder.pic);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DetailActivity.class);
+                intent.putExtra("object", items.get(position));
+                context.startActivity(intent);  // Start the DetailActivity
+            }
+        });
     }
 
     @Override
