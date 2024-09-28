@@ -48,33 +48,34 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
                 android:orientation="horizontal">
 
                 <EditText
                     android:id="@+id/editTextText"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="text"
-                    android:background="@drawable/grey_bacground"
-                    android:textAlignment="center"
-                    android:textSize="14sp"
-                    android:textColorHint="@color/blue_grey"
-                    android:textColor="@color/blue_grey"
                     android:layout_marginEnd="16dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/grey_bacground"
+                    android:ems="10"
+                    android:hint="Enter Your Code"
+                    android:inputType="text"
+                    android:textAlignment="center"
+                    android:textColor="@color/blue_grey"
+                    android:textColorHint="@color/blue_grey"
 
-                    android:hint="Enter Your Code" />
+                    android:textSize="14sp" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/button"
                     style="@android:style/Widget.Button"
-                    android:background="@drawable/red_button_background2"
                     android:layout_width="145dp"
                     android:layout_height="40dp"
-                    android:textColor="@color/white"
+                    android:background="@drawable/red_button_background2"
+                    android:text="Apply Coupon"
 
-                    android:text="Apply Coupon" />
+                    android:textColor="@color/white" />
             </LinearLayout>
 
             <TextView
@@ -175,6 +176,7 @@
 
                 <TextView
                     android:id="@+id/textView26"
+                    style="@style/textStyleBold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -184,6 +186,7 @@
 
                 <TextView
                     android:id="@+id/textView27"
+                    style="@style/textStyleBold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
@@ -193,6 +196,18 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/textView26" />
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/red_button_background"
+                style="@android:style/Widget.Button"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+
+                android:text="Place Order" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
